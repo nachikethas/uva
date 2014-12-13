@@ -44,9 +44,11 @@ Graph::Graph (){
 
 void Graph::readG () {
 	string str;
+	int len = 1;
 	while (getline(cin, str) && !str.empty()){
 		word[nV] = str;	
-		for (int i = 1; i<=MAXWLEN; i++)
+		len = str.size();
+		for (int i = 1; i<=len; i++)
 			if ( isE(nV-i,nV) )
 				insertE(nV-i,nV);
 		nV++;
