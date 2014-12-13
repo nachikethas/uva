@@ -46,7 +46,7 @@ void Graph::readG () {
 	string str;
 	while (getline(cin, str) && !str.empty()){
 		word[nV] = str;	
-		for (int i = 0; i<=nV; i++)
+		for (int i = 0; i<nV; i++)
 			if ( isE(i,nV) )
 				insertE(i,nV);
 		nV++;
@@ -133,7 +133,7 @@ int Graph::pathLen (){
 	int x,y;
 	int maxLx = 1;
 
-	for (it = 0; it < nV; it++){
+	for (int it = 0; it < nV; it++){
 		x = it;
 
 		if (rev_edges[x].empty()) continue;
