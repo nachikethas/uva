@@ -44,13 +44,11 @@ Graph::Graph (){
 
 void Graph::readG () {
 	string str;
-	int len = 1;
 	while (getline(cin, str) && !str.empty()){
 		word[nV] = str;	
-		len = str.size();
-		for (int i = 1; i<=len; i++)
-			if ( isE(nV-i,nV) )
-				insertE(nV-i,nV);
+		for (int i = 0; i<=nV; i++)
+			if ( isE(i,nV) )
+				insertE(i,nV);
 		nV++;
 	}
 
@@ -130,13 +128,13 @@ void Graph::topsort (){
 }
 
 int Graph::pathLen (){
-	topsort();
+	// topsort();
 	vector<int> len(nV, 1);
 	int x,y;
 	int maxLx = 1;
 
-	for (auto it = sortedG.begin(); it != sortedG.end(); it++){
-		x = *it;
+	for (it = 0; it < nV; it++){
+		x = it;
 
 		if (rev_edges[x].empty()) continue;
 
