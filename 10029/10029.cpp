@@ -10,7 +10,7 @@
 
 using namespace std;
 
-#define MAXWLEN 16;
+#define MAXWLEN 875
 
 class Graph {
 	// vector<int> degree;
@@ -46,9 +46,9 @@ void Graph::readG () {
 	string str;
 	while (getline(cin, str) && !str.empty()){
 		word[nV] = str;	
-		for (int i = 0; i<nV; i++)
-			if ( isE(i,nV) )
-				insertE(i,nV);
+		for (int i = 1; i<MAXWLEN; i++)
+			if ( isE(nV-i,nV) )
+				insertE(nV-i,nV);
 		nV++;
 	}
 
