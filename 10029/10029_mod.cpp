@@ -1,4 +1,4 @@
-// Credits to https://github.com/ajahuang for this solution.
+// Credits to https://github.com/ajahuang for this solution idea.
 //
 #include<iostream>
 #include<unordered_map>
