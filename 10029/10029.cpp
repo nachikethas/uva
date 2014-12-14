@@ -46,7 +46,8 @@ void Graph::readG () {
 	string str;
 	while (getline(cin, str) && !str.empty()){
 		word[nV] = str;	
-		for (int i = 1; i<MAXWLEN; i++)
+		int len = min(MAXWLEN, nV);
+		for (int i = 1; i<=len; i++)
 			if ( isE(nV-i,nV) )
 				insertE(nV-i,nV);
 		nV++;
@@ -73,6 +74,11 @@ void Graph::insertE (int x, int y) {
 
 bool Graph::isE (int x, int y){
 	int minL, maxL;
+
+	if (word[x].empty() || word[y].empty()){
+		cout<<"Invalid words (x,y) = ("<<x<<","<<y<<")";
+		exit(0);
+	}
 
 	minL = min(word[x].size(), word[y].size());
 	maxL = max(word[x].size(), word[y].size());
